@@ -16,7 +16,7 @@ on:
 #2
 env:
   REGISTRY: "registry.digitalocean.com/elanclarkson"
-  IMAGE_NAME: "jeffreemusic"
+  IMAGE_NAME: "elanclarkson/jeffreemusic-code"
 
 #3
 jobs:
