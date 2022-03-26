@@ -1,0 +1,25 @@
+version: "3"
+services:
+    nginx:
+        image: nginx:latest
+        container_name: nginx
+        depends_on:
+            - php
+        links:
+            - php
+        volumes:
+            - ../:/var/www
+            - ./nginx/conf.d/:/etc/nginx/conf.d/
+            - ./log/nginx/:/var/log/nginx/
+        ports:
+            - "8880:80"
+    php:
+        build:
+            context: .
+            dockerfile: ./php/php.dockerfile
+        container_name: php
+        volumes:
+            - ../:/var/www
+            - ./php/conf.d/:/usr/local/etc/php/conf.d/
+volumes:
+    db_data: {}
