@@ -16,7 +16,7 @@ on:
 #2
 env:
   REGISTRY: "registry.digitalocean.com/elanclarkson"
-  IMAGE_NAME: "jeffreemusic"
+  IMAGE_NAME: "jeffreemusic-code"
 
 #3
 jobs:
@@ -42,7 +42,7 @@ jobs:
 
       - name: Push image to DigitalOcean Container Registry
         run: |
-          docker tag $(echo $IMAGE_NAME) /$(echo $REGISTRY)/$(echo $IMAGE_NAME)
+          docker tag $(echo $IMAGE_NAME) $(echo $REGISTRY)/$(echo $IMAGE_NAME)
           docker push $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
         
   deploy:
